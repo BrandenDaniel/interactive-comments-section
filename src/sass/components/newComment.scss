@@ -1,0 +1,39 @@
+.newComment {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  form {
+    background: var(--white);
+    padding: 16px;
+    border-radius: 8px;
+
+    textarea {
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      padding: 12px 24px;
+      width: 100%;
+      color: var(--grayish-blue);
+      height: 96px;
+      line-height: 1.5;
+    }
+
+    > div {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      object-fit: conver;
+      border-radius: 50%;
+
+      button {
+        background: var(--moderate-blue);
+        color: var(--white);
+        padding: 12px 30px;
+        font-weight: 500;
+        border-radius: 8px;
+      }
+    }
+  }
+}
