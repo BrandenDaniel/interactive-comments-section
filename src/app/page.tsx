@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import NewComment from "@/components/NewComment";
 import Data from "../data/data.json";
 import { CommentsContext } from "@/components/CommentsContext";
+import Comments from "@/components/Comments";
 
 export type CommentsType = {
   currentUser: {
@@ -45,9 +46,9 @@ const page = () => {
   const [commentsData, setCommentsData] = useState({ ...Data });
 
   return (
-    <main className="comments container">
+    <main className="container">
       <CommentsContext.Provider value={commentsData}>
-        <div>test</div>
+        <Comments />
         <NewComment />
       </CommentsContext.Provider>
     </main>

@@ -24,8 +24,10 @@ body {
 
 .container {
   background: var(--very-light-gray);
-  padding: 32px 16px;
+  padding: 16px;
   height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
