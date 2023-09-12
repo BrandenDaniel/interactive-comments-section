@@ -1,4 +1,89 @@
 .comments {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+
+  &__item {
+    background: var(--white);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    &-username {
+      color: var(--dark-blue);
+      font-weight: 500;
+    }
+
+    &-createdAt,
+    &-content {
+      color: var(--grayish-blue);
+      line-height: 1.5;
+    }
+
+    &-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-score {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--very-light-gray);
+      padding: 8px 9px;
+      border-radius: 10px;
+      button {
+        padding: 0;
+        background: none;
+        display: flex;
+        align-items: center;
+
+        &:hover * {
+          color: var(--moderate-blue);
+          stroke: var(--moderate-blue);
+        }
+
+        * {
+          font-size: 22px;
+          font-weight: 900;
+          color: var(--light-grayish-blue);
+          stroke: var(--light-grayish-blue);
+        }
+      }
+
+      span {
+        color: var(--moderate-blue);
+        font-weight: 500;
+      }
+    }
+
+    &-reply {
+      color: var(--moderate-blue);
+      font-weight: 500;
+      background: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &::before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        display: block;
+        background-image: url("../../assets/images/icons/icon-reply.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
 }

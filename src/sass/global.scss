@@ -19,9 +19,6 @@
   font-size: 16px;
 }
 
-body {
-}
-
 .container {
   background: var(--very-light-gray);
   padding: 16px;
@@ -33,4 +30,7 @@ body {
 button {
   border: none;
   font-size: 1rem;
+  min-height: auto;
+  height: auto;
+  line-height: normal;
 }
