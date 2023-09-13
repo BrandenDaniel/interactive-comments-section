@@ -1,5 +1,6 @@
 export type comment = {
   id: number;
+  originalComment: boolean;
   content: string;
   createdAt: string;
   score: number;

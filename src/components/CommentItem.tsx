@@ -5,7 +5,14 @@ import { comment } from "@/types/comment";
 
 const CommentItem = (props: comment) => {
   return (
-    <div className="comments__item" key={props.id}>
+    <div
+      className={`comments__item ${
+        props.originalComment
+          ? "comments__item--original"
+          : "comments__item--reply"
+      }`}
+      key={props.id}
+    >
       <div className="comments__item-header">
         <Image
           src={`/avatars/${props.user.image.png}`}

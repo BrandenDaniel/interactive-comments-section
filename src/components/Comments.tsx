@@ -12,11 +12,20 @@ const Comments = () => {
   return (
     <>
       {sortByHighestVote?.map((item) => (
-        <>
-          <CommentItem {...item} />
-
-          <CommentItem replies={item.replies} />
-        </>
+        <div className="comments__wrapper">
+          <CommentItem {...item} originalComment={true} />
+          {item.replies &&
+            item.replies.map((reply) => (
+              <CommentItem
+                id={reply.id}
+                originalComment={false}
+                content={reply.content}
+                score={reply.score}
+                createdAt={reply.createdAt}
+                user={reply.user}
+              />
+            ))}
+        </div>
       ))}
     </>
   );
