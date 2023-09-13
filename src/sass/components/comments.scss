@@ -37,7 +37,7 @@
     &-score {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: var(--very-light-gray);
       padding: 8px 9px;
       border-radius: 10px;
@@ -53,7 +53,7 @@
         }
 
         * {
-          font-size: 22px;
+          font-size: 20px;
           font-weight: 900;
           color: var(--light-grayish-blue);
           stroke: var(--light-grayish-blue);

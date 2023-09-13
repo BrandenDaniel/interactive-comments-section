@@ -33,4 +33,8 @@ button {
   min-height: auto;
   height: auto;
   line-height: normal;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

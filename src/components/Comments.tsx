@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { CommentsContext } from "./CommentsContext";
-import Image from "next/image";
-import { GrFormAdd, GrFormSubtract } from "react-icons/gr";
+import CommentItem from "./CommentItem";
 
 const Comments = () => {
   const data = useContext(CommentsContext);
@@ -11,42 +10,15 @@ const Comments = () => {
   });
 
   return (
-    <section className="comments">
-      {sortByHighestVote?.map((comment) => (
-        <div className="comments__item">
-          <div className="comments__item-header">
-            <Image
-              src={`/avatars/${comment.user.image.png}`}
-              height={32}
-              width={32}
-              alt={comment.user.username}
-            />
-            <span className="comments__item-username">
-              {comment.user.username}
-            </span>
-            <span className="comments__item-createdAt">
-              {comment.createdAt}
-            </span>
-          </div>
+    <>
+      {sortByHighestVote?.map((item) => (
+        <>
+          <CommentItem {...item} />
 
-          <p className="comments__item-content">{comment.content}</p>
-
-          <div className="comments__item-cta">
-            <div className="comments__item-score">
-              <button>
-                <GrFormAdd />
-              </button>
-              <span>{comment.score}</span>
-              <button>
-                <GrFormSubtract />
-              </button>
-            </div>
-
-            <button className="comments__item-reply">Reply</button>
-          </div>
-        </div>
+          <CommentItem replies={item.replies} />
+        </>
       ))}
-    </section>
+    </>
   );
 };
 
