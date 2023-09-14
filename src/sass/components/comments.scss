@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: calc(100dvh - 241.5px);
+  height: calc(100dvh - 242.5px);
   overflow: auto;
   border-radius: 8px 8px 8px 0;
 
@@ -101,6 +101,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      padding: 0;
 
       &::before {
         content: "";
@@ -111,6 +112,66 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+      }
+    }
+  }
+
+  // scrollbar
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--grayish-blue);
+    border-left: 6px solid var(--very-light-gray);
+  }
+}
+
+@media (min-width: $md) {
+  .comments {
+    &__item {
+      position: relative;
+      padding: 24px;
+
+      &-cta {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        padding: 0 24px;
+        align-items: flex-start;
+      }
+
+      &-score {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      &-header,
+      &-content {
+        padding-left: 64px;
+      }
+
+      &-reply:hover {
+        color: var(--light-grayish-blue);
+        &:before {
+          opacity: 0.35;
+        }
+      }
+
+      &--reply {
+        margin-left: 86px;
+
+        &::before {
+          left: -43px;
+        }
       }
     }
   }

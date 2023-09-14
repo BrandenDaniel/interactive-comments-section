@@ -6,6 +6,12 @@
   font-size: 1rem;
 }
 
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
 :root {
   --moderate-blue: hsl(238, 40%, 52%);
   --soft-red: hsl(358, 79%, 66%);

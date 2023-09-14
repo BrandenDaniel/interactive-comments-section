@@ -1,22 +1,44 @@
-import React, { useContext } from "react";
-import { CommentsContext } from "./CommentsContext";
 import CommentItem from "./CommentItem";
 
-const Comments = () => {
-  const data = useContext(CommentsContext);
+export type comments = {
+  comments: Comment[];
+  setComments: (newComments: Comment[]) => void;
+};
 
-  const sortByHighestVote = data?.comments.sort((a, b) => {
+type Comment = {
+  id: number;
+  originalComment?: boolean;
+  content: string;
+  createdAt: string;
+  score: number;
+  user: {
+    image: {
+      png: string;
+      webp: string;
+    };
+    username: string;
+  };
+  replies?: Comment[];
+};
+
+const Comments = (props: comments) => {
+  const sortByHighestVote = props.comments?.sort((a, b) => {
     return b.score - a.score;
   });
 
   return (
     <>
       {sortByHighestVote?.map((item) => (
-        <div className="comments__wrapper">
-          <CommentItem {...item} originalComment={true} />
+        <div className="comments__wrapper" key={item.id}>
+          <CommentItem
+            {...item}
+            originalComment={true}
+            setComments={props.setComments}
+          />
           {item.replies &&
             item.replies.map((reply) => (
               <CommentItem
+                key={reply.id}
                 id={reply.id}
                 originalComment={false}
                 content={reply.content}

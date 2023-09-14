@@ -1,7 +1,37 @@
 import React from "react";
 import Image from "next/image";
 import { GrFormAdd, GrFormSubtract } from "react-icons/gr";
-import { comment } from "@/types/comment";
+
+export type comment = {
+  id: number;
+  originalComment: boolean;
+  content: string;
+  createdAt: string;
+  score: number;
+  user: {
+    image: {
+      png: string;
+      webp: string;
+    };
+    username: string;
+  };
+  replies?: {
+    id: number;
+    content: string;
+    createdAt: string;
+    score: number;
+    replyingTo?: string | undefined;
+    user: {
+      image: {
+        png: string;
+        webp: string;
+      };
+      username: string;
+    };
+  }[];
+
+  setComments: (newComments: Comment[]) => void;
+};
 
 const CommentItem = (props: comment) => {
   return (

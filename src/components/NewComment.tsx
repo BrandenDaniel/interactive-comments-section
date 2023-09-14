@@ -1,18 +1,15 @@
+import { currentUser } from "@/types/currentUser";
 import Image from "next/image";
-import { useContext } from "react";
-import { CommentsContext } from "./CommentsContext";
 
-const NewComment = () => {
-  const data = useContext(CommentsContext);
-
+const NewComment = (props: currentUser) => {
   return (
     <section className="newComment">
       <form>
         <textarea name="" id="" placeholder="Add a comment..."></textarea>
         <div>
           <Image
-            src={`/avatars/${data?.currentUser.image.png}`}
-            alt={data?.currentUser.username!}
+            src={`/avatars/${props.currentUser.image.png}`}
+            alt={props.currentUser.username!}
             height={32}
             width={32}
           />
